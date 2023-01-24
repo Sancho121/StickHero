@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StickHero", "StickHero\StickHero.csproj", "{A60FC685-D811-4C25-919C-A27FAC17C467}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A60FC685-D811-4C25-919C-A27FAC17C467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A60FC685-D811-4C25-919C-A27FAC17C467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A60FC685-D811-4C25-919C-A27FAC17C467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A60FC685-D811-4C25-919C-A27FAC17C467}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F2CEBA3-F337-4D76-8F47-A88F6F1F7575}
+	EndGlobalSection
+EndGlobal
