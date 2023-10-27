@@ -6,12 +6,23 @@ using System.Text;
 namespace StickHero
 {
     class StickHeroGame
-    {
-        private Image heroImage = Properties.Resources.Hero;
+    {           
+        private Rectangle firstPlatform;
+        private Rectangle secondPlatform;
+        private Hero hero;
 
-        public void Draw(Graphics graphics)
+        public void Restart()
         {
-            graphics.DrawImage(heroImage, 30, 340);
+            firstPlatform = new Rectangle(0, 515, 100, 145);
+            secondPlatform = new Rectangle(150, 515, 50, 145);
+            hero = new Hero();
         }
+
+        public void DrawHeroAndPlatforms(Graphics graphics)
+        {
+            hero.DrawHero(graphics);
+            graphics.FillRectangle(Brushes.Black, firstPlatform);
+            graphics.FillRectangle(Brushes.Black, secondPlatform);
+        }       
     }
 }

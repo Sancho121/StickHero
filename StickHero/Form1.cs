@@ -17,12 +17,27 @@ namespace StickHero
         public Form1()
         {
             InitializeComponent();
+            stickHeroGame.Restart();
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            stickHeroGame.Draw(e.Graphics);
-            e.Graphics.FillRectangle(Brushes.Black, 150, 400, 50, 160);
+            stickHeroGame.DrawHeroAndPlatforms(e.Graphics);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {           
+            this.pictureBox1.Refresh();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }
