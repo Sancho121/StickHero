@@ -7,11 +7,22 @@ namespace StickHero
 {
     class Hero
     {
-        private Image heroImage = Properties.Resources.Hero;
+        public Image heroImage = Properties.Resources.Hero;       
+        public Point heroPosition = new Point(30, 455);
 
         public void DrawHero(Graphics graphics)
         {
-            graphics.DrawImage(heroImage, 30, 455);
+            graphics.DrawImage(heroImage, heroPosition);           
+        }
+
+        public void MoveHero(int gameSpeed)
+        {
+            heroPosition.X += gameSpeed;
+        }
+
+        public void DropHero(int gameSpeed)
+        {
+            heroPosition.Y += gameSpeed;
         }
     }
 }
