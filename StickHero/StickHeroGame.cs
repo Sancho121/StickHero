@@ -20,23 +20,23 @@ namespace StickHero
         private Random random = new Random();
         private int secondPlatformX;
         private int secondPlatformWidth;
+        private const int firstPlatformWidth = 100;
+        private const int PlatformHeight = 145;
+        private const int PlatformY = 515;
+        private const int bonusZoneWidth = 20;
+        private const int bonusZoneHeight = 5;
 
         public StickHeroGame(int gameSpeed, int heroSpeed)
         {
             this.gameSpeed = gameSpeed;
             this.heroSpeed = heroSpeed;
+            firstPlatform = new Rectangle(0, PlatformY, firstPlatformWidth, PlatformHeight);
         }
 
         public void Restart()
         {
-            gameState = GameState.WaitingAction;
-            secondPlatformX = random.Next(15, 37) * 10;
-            secondPlatformWidth = random.Next(4, 8) * 10;
-            firstPlatform = new Rectangle(0, 515, 100, 145);
-            secondPlatform = new Rectangle(secondPlatformX, 515, secondPlatformWidth, 145);
-            bonusZone = new Rectangle(secondPlatformX + (secondPlatformWidth / 2) - 10, 515, 20, 5);
-            hero = new Hero();
-            stick = new Stick();
+            Score = 0;
+            GenerateNextLevel();
         }
 
         public void DrawGameElements(Graphics graphics)
@@ -80,7 +80,7 @@ namespace StickHero
                             {
                                 Score++;
                             }
-                            Restart();
+                            GenerateNextLevel();
                         }
                         else
                         {
@@ -94,13 +94,23 @@ namespace StickHero
 
                     if (stick.IsStickInVerticalPosition())
                     {
-                        Score = 0;
                         Restart();
                     }
                     break;
                 default:
                     break;
             }
+        }
+
+        private void GenerateNextLevel()
+        {
+            gameState = GameState.WaitingAction;
+            secondPlatformX = random.Next(15, 37) * 10;
+            secondPlatformWidth = random.Next(4, 8) * 10;
+            secondPlatform = new Rectangle(secondPlatformX, PlatformY, secondPlatformWidth, PlatformHeight);
+            bonusZone = new Rectangle(secondPlatformX + (secondPlatformWidth / 2) - (bonusZoneWidth / 2), PlatformY, bonusZoneWidth, bonusZoneHeight);
+            hero = new Hero();
+            stick = new Stick();
         }
 
         private bool IsHeroGetEndOfStick()
